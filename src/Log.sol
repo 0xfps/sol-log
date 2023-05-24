@@ -9,22 +9,6 @@ pragma solidity 0.8.19;
 */
 
 library Log {
-    /**
-    * @dev    Returns the value of log(x)
-    *                                 b
-    * @param x Number.
-    * @param b Base.
-    * @return p Power.
-    */
-    function _log(uint256 x, uint256 b) private pure returns (uint256 p) {
-        if (b < 2) revert("LOG: INVALID_BASE");
-
-        while (x >= b) {
-            x /= b;
-            ++p;
-        }
-    }
-
     function log(uint256 x, uint256 b) internal pure returns (uint256) {
         return _log(x, b);
     }
@@ -48,5 +32,21 @@ library Log {
     function logRt(uint256 x, uint256 r, uint256 b) internal pure returns (uint256) {
         if (r == 0) revert("LOG: ZERO_DIVISION");
         return log(x, b) / r;
+    }
+
+    /**
+    * @dev    Returns the value of log(x)
+    *                                 b
+    * @param x Number.
+    * @param b Base.
+    * @return p Power.
+    */
+    function _log(uint256 x, uint256 b) private pure returns (uint256 p) {
+        if (b < 2) revert("LOG: INVALID_BASE");
+
+        while (x >= b) {
+            x /= b;
+            ++p;
+        }
     }
 }
