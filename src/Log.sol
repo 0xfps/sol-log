@@ -42,6 +42,7 @@ library Log {
     * @return p Power.
     */
     function _log(uint256 x, uint256 b) private pure returns (uint256 p) {
+        if (x == 0) revert("LOG: UNDEFINED");
         if (b < 2) revert("LOG: INVALID_BASE");
 
         while (x >= b) {
