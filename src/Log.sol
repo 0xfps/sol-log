@@ -10,15 +10,15 @@ pragma solidity 0.8.19;
 
 library Log {
     /**
-    * @dev    Returns the value of log(b)
-    *                                 a
-    * @param a Base.
-    * @param b Number.
+    * @dev    Returns the value of log(x)
+    *                                 b
+    * @param x Number.
+    * @param b Base.
     * @return p Power.
     */
-    function log(uint256 a, uint256 b) internal pure returns (uint256 p) {
-        while (b > a) {
-            b /= a;
+    function log(uint256 x, uint256 b) internal pure returns (uint256 p) {
+        while (x > b) {
+            x /= b;
             ++p;
         }
     }
