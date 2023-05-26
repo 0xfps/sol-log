@@ -63,7 +63,7 @@ library Log {
     * @return uint256 Power.
     */
     function logPow(uint256 x, uint256 p, uint256 b) internal pure returns (uint256) {
-        return p * log(x, b);
+        return log(x, b) * p;
     }
 
     /**
